@@ -1,18 +1,29 @@
 const { authenticate } = require('feathers-authentication').hooks;
+const commonHooks = require('feathers-hooks-common');
 
+const updateEvaluation = require( '../../hooks/updateEvaluation' );
+
+const classroomSchema = {
+  include: {
+    service: 'classrooms',
+    nameAs: 'classroom',
+    parentField: 'classroomId',
+    childField: '_id'
+  }
+};
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
     create: [],
-    update: [],
-    patch: [],
+    update: [updateEvaluation()],
+    patch: [updateEvaluation()],
     remove: []
   },
 
   after: {
-    all: [],
+    all: [commonHooks.populate({schema: classroomSchema})],
     find: [],
     get: [],
     create: [],
