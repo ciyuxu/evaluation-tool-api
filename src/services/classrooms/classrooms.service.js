@@ -4,7 +4,7 @@ const createModel = require('../../models/classrooms.model');
 const hooks = require('./classrooms.hooks');
 const filters = require('./classrooms.filters');
 
-module.exports = function () {
+module.exports = function() {
     const app = this;
     const Model = createModel(app);
     const paginate = app.get('paginate');

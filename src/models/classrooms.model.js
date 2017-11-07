@@ -2,7 +2,7 @@
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
-module.exports = function (app) {
+module.exports = function(app) {
     const mongooseClient = app.get('mongooseClient');
     const { Schema } = mongooseClient;
 
@@ -11,11 +11,10 @@ module.exports = function (app) {
         startDate: { type: Date, default: Date.now },
         endDate: { type: Date, default: Date.now },
         studentIds: [{ type: Schema.Types.ObjectId, ref: 'students' }],
-    
+
         createdAt: { type: Date, default: Date.now },
         updatedAt: { type: Date, default: Date.now }
     });
-
 
     return mongooseClient.model('classrooms', classrooms);
 };

@@ -1,7 +1,7 @@
 const { authenticate } = require('feathers-authentication').hooks;
 const commonHooks = require('feathers-hooks-common');
 
-const updateEvaluation = require( '../../hooks/updateEvaluation' );
+const updateEvaluation = require('../../hooks/updateEvaluation');
 
 const classroomSchema = {
     include: {
@@ -13,7 +13,7 @@ const classroomSchema = {
 };
 module.exports = {
     before: {
-        all: [ authenticate('jwt') ],
+        all: [authenticate('jwt')],
         find: [],
         get: [],
         create: [],
@@ -23,7 +23,7 @@ module.exports = {
     },
 
     after: {
-        all: [commonHooks.populate({schema: classroomSchema})],
+        all: [commonHooks.populate({ schema: classroomSchema })],
         find: [],
         get: [],
         create: [],
