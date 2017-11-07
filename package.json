@@ -51,9 +51,11 @@
   },
   "devDependencies": {
     "eslint": "^4.10.0",
+    "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
+    "prettier": "^1.8.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }
